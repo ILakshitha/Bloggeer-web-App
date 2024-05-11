@@ -96,7 +96,7 @@ export default function SignUp() {
               loading ?(
                 <>
                 <Spinner size='sm'/>
-                <span className='pl-3'>Loading...</span>
+               <span className='pl-3'>Loading...</span>
                 </>
                 
               ):'Sign Up'
