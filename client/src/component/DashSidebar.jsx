@@ -1,6 +1,6 @@
-import { Sidebar, SidebarItem } from 'flowbite-react'
+import { Button, Modal, Sidebar, SidebarItem } from 'flowbite-react'
 import React from 'react';
-import { HiUser, HiArrowSmRight, HiDocumentText, HiOutlineUserGroup, HiAnnotation, HiChartPie } from 'react-icons/hi';
+import { HiUser, HiArrowSmRight, HiDocumentText, HiOutlineUserGroup, HiAnnotation, HiChartPie, HiOutlineExclamationCircle } from 'react-icons/hi';
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Link } from 'react-router-dom';
@@ -13,6 +13,7 @@ export default function DashSidebar() {
   const [tab, setTab] = useState('');
   const dispatch = useDispatch();
   const { currentUser } = useSelector(state => state.user);
+  const [showModal, setShowModal]= useState(false);
   useEffect(() => {
     const urlParams = new URLSearchParams(location.search);
     const tabFromUrl = urlParams.get('tab');
@@ -97,12 +98,46 @@ export default function DashSidebar() {
            </>
           )}
 
-          <Sidebar.Item icon={HiArrowSmRight} classname='cursor-pointer' onClick={handleSignout}>
+          <Sidebar.Item icon={HiArrowSmRight} classname='cursor-pointer' onClick={()=>{
+            setShowModal(true)
+            
+          }}>
+            
             Sign Out
           </Sidebar.Item>
+
+          <Modal
+        show={showModal}
+        onClose={() => setShowModal(false)}
+        popup
+        size='md'
+      >
+        <Modal.Header />
+        <Modal.Body>
+          <div className='text-center'>
+            <HiOutlineExclamationCircle className='h-14 w-14 text-gray-400 dark:text-gray-200 mb-4 mx-auto' />
+            <h3 className='mb-5 text-lg text-gray-500 dark:text-gray-400'>
+              Are you sure you want to Sign Out?
+            </h3>
+            <div className='flex justify-center gap-4'>
+              <Button
+                color='failure'
+                onClick={handleSignout}
+              >
+                Yes, I'm sure
+              </Button>
+              <Button color='gray' onClick={() => setShowModal(false)}>
+                No, cancel
+              </Button>
+            </div>
+          </div>
+        </Modal.Body>
+      </Modal>
 
         </Sidebar.ItemGroup>
       </Sidebar.Items>
     </Sidebar>
+
+    
   )
 }
