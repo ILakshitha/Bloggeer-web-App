@@ -11,6 +11,7 @@ export default function CreateAdd() {
   const [imageUploadError, setImageUploadError] = useState(null);
   const [formData, setFormData] = useState({});
   const [publishError, setPublishError] = useState(null);
+  const[postPublishSuccess,setPostPublishSuccess]=useState(null);
   const handleUpdloadImage = async () => {
     try {
       if (!file) {
@@ -51,6 +52,7 @@ export default function CreateAdd() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setPostPublishSuccess(null);
     try {
       const res = await fetch('/api/add/create', {
         method: 'POST',
@@ -63,6 +65,8 @@ export default function CreateAdd() {
       if (!res.ok) {
         setPublishError(data.message);
         return;
+      }else{
+        setPostPublishSuccess("Add Publish successfully");
       }
 
      
@@ -123,6 +127,11 @@ export default function CreateAdd() {
         <Button type='submit' gradientDuoTone='purpleToPink'>
           Publish
         </Button>
+        {postPublishSuccess && (
+        <Alert color='success' className='mt-5'>
+          {postPublishSuccess}
+        </Alert>
+      )}
         {publishError && (
           <Alert className='mt-5' color='failure'>
             {publishError}
