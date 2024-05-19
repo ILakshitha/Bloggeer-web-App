@@ -97,11 +97,21 @@ export default function DashSidebar() {
              </Link>
            </>
           )}
+         {currentUser.isAdmin && (
+            <Link to='/dashboard?tab=adds'>
+              <Sidebar.Item
+                active={tab === 'adds'}
+                icon={HiDocumentText}
+                as='div'
+              >
+                Adds
+              </Sidebar.Item>
+            </Link>
+          )}
 
           <Sidebar.Item icon={HiArrowSmRight} classname='cursor-pointer' onClick={()=>{
             setShowModal(true)
-            
-          }}>
+                  }}>
             
             Sign Out
           </Sidebar.Item>
