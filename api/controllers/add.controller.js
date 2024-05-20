@@ -38,7 +38,7 @@ export const getadds = async(req,res,next)=>{
     const startIndex = parseInt(req.query.startIndex) || 0;
     const sortDirection = req.query.order === 'asc' ? 1 : -1;
     const adds = await Add.find()
-    
+     
     .sort({ createdAt: sortDirection })
     .skip(startIndex)
 
