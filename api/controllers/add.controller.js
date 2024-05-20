@@ -49,4 +49,16 @@ export const getadds = async(req,res,next)=>{
   } catch (error) {
     next(error);
   }
+};
+
+export const deleteadd = async (req,res,next)=>{
+  if (!req.user.isAdmin) {
+    return next(errorHandler(403, 'You are not allowed to delete this post'));
+  }
+  try {
+    await Add.findByIdAndDelete(req.params.addId);
+    res.status(200).json('The Add has been deleted');
+  } catch (error) {
+    next(error);
+  }
 }
