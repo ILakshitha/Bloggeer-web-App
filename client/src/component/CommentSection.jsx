@@ -13,7 +13,7 @@ export default function CommentSection({postId}) {
     const [showModal, setShowModal]= useState(false);
     const [commentToDelete, setCommentToDelete] =useState(null);
 
-    console.log(comments);
+    //console.log(comments);
     const navigate = useNavigate();
 
     const handleSubmit = async (e) => {

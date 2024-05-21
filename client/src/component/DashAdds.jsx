@@ -106,7 +106,7 @@ const handleDeleteAdd = async ()=>{
                                     <Table.Cell>
                                         <Link
                                             className='text-teal-500 hover:underline'
-                                            
+                                            to={`/update-add/${add._id}`}
                                         >
                                             <span>Edit</span>
                                         </Link>
