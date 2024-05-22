@@ -6,6 +6,7 @@ import DashPosts from "../component/DashPosts";
 import DashUsers from "../component/DashUsers";
 import DashComments from "../component/DashComments";
 import DashbordComp from "../component/DashbordComp";
+import DashAdds from "../component/DashAdds";
 
 
 export default function Dashbord() {
@@ -42,6 +43,9 @@ export default function Dashbord() {
 
       {/*Dashbord component*/}
       {tab === 'dash' && <DashbordComp/>}
+
+      {/* adds*/}
+      {tab==='adds' && <DashAdds/>}
     </div>
   )
 }

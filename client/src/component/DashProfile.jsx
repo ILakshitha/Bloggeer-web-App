@@ -241,7 +241,19 @@ const handleSignout = async() =>{
               gradientDuoTone='purpleToPink'
               className='w-full'
             >
-              Create a post
+              Create a Post
+            </Button>
+          </Link>
+        )}
+
+{currentUser.isAdmin && (
+          <Link to={'/create-add'}>
+            <Button
+              type='button'
+              gradientDuoTone='purpleToPink'
+              className='w-full'
+            >
+              Create a Add
             </Button>
           </Link>
         )}
