@@ -15,8 +15,8 @@ export default function UpdateAdd() {
   const[postPublishSuccess,setPostPublishSuccess]=useState(null);
  
   const {addId}= useParams();
-  console.log(formData);
-  console.log(addId);
+  //console.log(formData);
+  //console.log(addId);
 
   useEffect(()=>{
     try {
