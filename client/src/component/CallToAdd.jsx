@@ -44,26 +44,3 @@ export default function CallToAdd({add}) {
         </div>
   )
 }
-
-
-// {adds && adds.length > 0 && (
-//     <div className='flex flex-col gap-6'>
-//       <h2 className='text-2xl font-semibold text-center'>Recent Posts</h2>
-//       <div className='flex flex-wrap gap-4'>
-//         {adds.map((add) => (
-//           <CallToAdd key={add._id} add={add} />
-//         ))}
-//       </div>
-    
-//     </div>
-//   )}
-
-
-// useEffect(() => {
-//     const fetchAdds = async () => {
-//       const res1 = await fetch('/api/add/getadds');
-//       const data1 = await res1.json();
-//       setPosts(data1.adds);
-//     };
-//     fetchAdds();
-//   }, []);
