@@ -67,7 +67,7 @@ const handleDeleteAdd = async ()=>{
                             <Table.HeadCell>
                                 <span>Edit</span>
                             </Table.HeadCell>
-                            <Table.HeadCell>Publish</Table.HeadCell>
+                            
                         </Table.Head>
                         {userAdds.map((add) => (
                             <Table.Body className='divide-y'>
@@ -111,8 +111,7 @@ const handleDeleteAdd = async ()=>{
                                             <span>Edit</span>
                                         </Link>
                                     </Table.Cell>
-                                    <TableCell><button className='text-teal-500 hover:underline'>Show</button>
-                                    </TableCell>
+                                  
                                 </Table.Row>
                             </Table.Body>
                         ))}
