@@ -1,6 +1,10 @@
 import { Button, Modal, Sidebar, SidebarItem } from 'flowbite-react'
 import React from 'react';
+<<<<<<< HEAD
 import { HiUser, HiArrowSmRight, HiDocumentText, HiOutlineUserGroup, HiAnnotation, HiChartPie, HiOutlineExclamationCircle } from 'react-icons/hi';
+=======
+import {HiUser, HiArrowSmRight, HiDocumentText} from 'react-icons/hi';
+>>>>>>> parent of 3d8cc3c (Create users API routes & show users to admin dashbord & create delete function to admin)
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Link } from 'react-router-dom';
@@ -9,21 +13,25 @@ import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 
 export default function DashSidebar() {
-  const location = useLocation();
+    const location = useLocation();
   const [tab, setTab] = useState('');
   const dispatch = useDispatch();
+<<<<<<< HEAD
   const { currentUser } = useSelector(state => state.user);
   const [showModal, setShowModal]= useState(false);
+=======
+  const {currentUser}= useSelector(state => state.user);
+>>>>>>> parent of 3d8cc3c (Create users API routes & show users to admin dashbord & create delete function to admin)
   useEffect(() => {
     const urlParams = new URLSearchParams(location.search);
     const tabFromUrl = urlParams.get('tab');
-
+   
     if (tabFromUrl) {
       setTab(tabFromUrl);
     }
   }, [location.search]);
 
-  const handleSignout = async () => {
+  const handleSignout = async() =>{
     try {
       const res = await fetch('/api/user/signout', {
         method: 'POST',
@@ -37,10 +45,11 @@ export default function DashSidebar() {
     } catch (error) {
       console.log(error.message);
     }
-
+  
   };
   return (
     <Sidebar className='w-full md:w-56'>
+<<<<<<< HEAD
       <Sidebar.Items>
         <Sidebar.ItemGroup className='flex flex-col gap-1'>
 
@@ -62,8 +71,18 @@ export default function DashSidebar() {
               profile
             </Sidebar.Item>
           </Link>
+=======
+        <Sidebar.Items>
+            <Sidebar.ItemGroup className='flex flex-col gap-1'>
+            <Link to='/dashboard?tab=profile'>
+                <Sidebar.Item active={tab=== 'profile'} icon = {HiUser} 
+                label ={currentUser.isAdmin ? 'Admin' : 'User'} labelColor='dark'>
+                    profile
+                </Sidebar.Item>
+                </Link>
+>>>>>>> parent of 3d8cc3c (Create users API routes & show users to admin dashbord & create delete function to admin)
 
-          {currentUser.isAdmin && (
+                {currentUser.isAdmin && (
             <Link to='/dashboard?tab=posts'>
               <Sidebar.Item
                 active={tab === 'posts'}
@@ -74,6 +93,7 @@ export default function DashSidebar() {
               </Sidebar.Item>
             </Link>
           )}
+<<<<<<< HEAD
           
           {currentUser.isAdmin && (
              <>
@@ -146,6 +166,17 @@ export default function DashSidebar() {
 
         </Sidebar.ItemGroup>
       </Sidebar.Items>
+=======
+
+
+
+                <Sidebar.Item  icon = {HiArrowSmRight} classname ='cursor-pointer' onClick={handleSignout}>
+                    Sign Out
+                </Sidebar.Item>
+             
+            </Sidebar.ItemGroup>
+        </Sidebar.Items>
+>>>>>>> parent of 3d8cc3c (Create users API routes & show users to admin dashbord & create delete function to admin)
     </Sidebar>
 
     

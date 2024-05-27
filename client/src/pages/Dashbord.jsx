@@ -3,10 +3,13 @@ import { useEffect, useState } from "react";
 import DashProfile from "../component/DashProfile";
 import DashSidebar from "../component/DashSidebar";
 import DashPosts from "../component/DashPosts";
+<<<<<<< HEAD
 import DashUsers from "../component/DashUsers";
 import DashComments from "../component/DashComments";
 import DashbordComp from "../component/DashbordComp";
 import DashAdds from "../component/DashAdds";
+=======
+>>>>>>> parent of 3d8cc3c (Create users API routes & show users to admin dashbord & create delete function to admin)
 
 
 export default function Dashbord() {
@@ -33,6 +36,7 @@ export default function Dashbord() {
 
       {/*posts...*/}
       {tab === 'posts' && <DashPosts/>}
+<<<<<<< HEAD
 
       {/*Users*/}
 
@@ -46,6 +50,8 @@ export default function Dashbord() {
 
       {/* adds*/}
       {tab==='adds' && <DashAdds/>}
+=======
+>>>>>>> parent of 3d8cc3c (Create users API routes & show users to admin dashbord & create delete function to admin)
     </div>
   )
 }

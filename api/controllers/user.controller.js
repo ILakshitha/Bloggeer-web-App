@@ -78,6 +78,7 @@ export const signout = (req,res,next)=>{
   } catch (error) {
     next(error);
   }
+<<<<<<< HEAD
 };
 
 export const getUsers = async (req,res,next) =>{
@@ -135,3 +136,6 @@ export const getUser = async (req, res, next) => {
     next(error);
   }
 };
+=======
+}
+>>>>>>> parent of 3d8cc3c (Create users API routes & show users to admin dashbord & create delete function to admin)
