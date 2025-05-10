@@ -89,7 +89,7 @@ export default function Home() {
       <section className="bg-gradient-to-r from-amber-50 to-amber-100 dark:from-slate-800 dark:to-slate-700 py-10">
         <div className="max-w-6xl mx-auto px-4">
           <CallToAction />
-          <CallToAdd />
+          {/* <CallToAdd /> */}
         </div>
       </section>
 
@@ -145,19 +145,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-gray-100 dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 py-8 px-4">
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
-          <div className="text-gray-600 dark:text-gray-400 text-sm">
-            © {new Date().getFullYear()} Your Blog Name. All rights reserved.
-          </div>
-          <div className="flex gap-6">
-            <a href="/about" className="text-gray-600 hover:text-indigo-600 dark:text-gray-400 dark:hover:text-indigo-400">About</a>
-            <a href="/contact" className="text-gray-600 hover:text-indigo-600 dark:text-gray-400 dark:hover:text-indigo-400">Contact</a>
-            <a href="/privacy" className="text-gray-600 hover:text-indigo-600 dark:text-gray-400 dark:hover:text-indigo-400">Privacy Policy</a>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 }

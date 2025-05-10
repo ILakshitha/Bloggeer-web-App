@@ -14,6 +14,8 @@ export default function DashSidebar() {
   const dispatch = useDispatch();
   const { currentUser } = useSelector(state => state.user);
   const [showModal, setShowModal]= useState(false);
+  const [posts,setPosts] = useState([])
+  const [loadingPosts,setLoadingPosts] = useState(false)
   useEffect(() => {
     const urlParams = new URLSearchParams(location.search);
     const tabFromUrl = urlParams.get('tab');
@@ -22,6 +24,29 @@ export default function DashSidebar() {
       setTab(tabFromUrl);
     }
   }, [location.search]);
+
+  useEffect(()=>{
+    const loadPosts= async()=>{
+      setLoadingPosts(true)
+      try {
+        const res = await fetch('/api/post/getPosts', {
+          method: 'GET',
+        });
+        const data = await res.json();
+        if (!res.ok) {
+          setPosts(data)
+
+        } else {
+          // dispatch(signoutSuccess());
+        }
+      } catch (error) {
+        console.log(error.message);
+      }finally{
+        setLoadingPosts(false)
+      }
+    }
+    loadPosts()
+  },[])
 
   const handleSignout = async () => {
     try {
@@ -70,7 +95,8 @@ export default function DashSidebar() {
                 icon={HiDocumentText}
                 as='div'
               >
-                Posts
+                Posts  
+                <label >{posts.length}</label>
               </Sidebar.Item>
             </Link>
           )}
