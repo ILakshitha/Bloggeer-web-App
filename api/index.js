@@ -38,6 +38,8 @@ app.use('/api/post', postRoutes);
 app.use('/api/comment',commentRoutes);
 app.use('/api/add',addRoutes);
 
+
+console.log(_dirname);
 app.use(express.static(path.join(_dirname, '/client/dist')));
 
 app.get('*',(req,res)=>{
